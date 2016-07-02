@@ -1,6 +1,8 @@
 package com.contigo.controller;
 
+import com.contigo.dao.UserDao;
 import com.contigo.domain.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,13 +13,15 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/user")
 public class UserController {
 
-    @RequestMapping(method = RequestMethod.GET)
-    @ResponseBody
-    public User login(@RequestParam String email, @RequestParam String password) {
-        User u = new User();
-        u.setEmail(email);
-        u.setFirstName("Nithin");
-        return u;
+    @Autowired
+    private UserDao userDao;
+
+    public UserDao getUserDao() {
+        return userDao;
+    }
+
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -27,5 +31,12 @@ public class UserController {
         u.setEmail(email);
         u.setFirstName("Nithin");
         return u;
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public User createUser(@RequestBody User user) {
+        //Create user in Database
+        User createdUser = getUserDao().createUser(user);
+        return createdUser;
     }
 }
