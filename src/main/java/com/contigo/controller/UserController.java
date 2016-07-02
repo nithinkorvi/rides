@@ -27,14 +27,24 @@ public class UserController {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     @ResponseBody
     public User userLogin(@RequestParam String email, @RequestParam String password) {
-        User u = new User();
-        u.setEmail(email);
-        u.setFirstName("Nithin");
+        User u = getUserDao().findByEmail(email);
+        if (u == null) {
+            throw new RuntimeException("User not found");
+        }
+
+        if (!u.getPassword().equals(password)) {
+            throw new RuntimeException("User/Password combination is inccorrect");
+        }
+
         return u;
     }
 
     @RequestMapping(method = RequestMethod.POST)
     public User createUser(@RequestBody User user) {
+        User u = getUserDao().findByEmail(user.getEmail());
+        if (u != null) {
+            throw new RuntimeException("User with email already exists, please login");
+        }
         //Create user in Database
         User createdUser = getUserDao().createUser(user);
         return createdUser;

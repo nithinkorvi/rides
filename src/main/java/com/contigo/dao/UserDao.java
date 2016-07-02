@@ -7,4 +7,6 @@ import com.contigo.domain.User;
  */
 public interface UserDao {
     User createUser(User user);
+
+    User findByEmail(String email);
 }
