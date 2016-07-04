@@ -1,3 +1,6 @@
+DROP TABLE ride_request CASCADE;
+DROP TABLE ride CASCADE;
+DROP TABLE ride_user CASCADE;
 
 CREATE SEQUENCE ride_user_user_id_seq;
 
@@ -30,8 +33,11 @@ ALTER SEQUENCE ride_user_last_name_seq OWNED BY ride_user.last_name;
 
 ALTER SEQUENCE ride_user_first_name_seq OWNED BY ride_user.first_name;
 
+
+CREATE SEQUENCE ride_request_id_seq;
+
 CREATE TABLE ride (
-                ride_id BIGINT NOT NULL,
+                ride_id BIGINT NOT NULL DEFAULT nextval('ride_request_id_seq'),
                 user_id BIGINT NOT NULL,
                 passenger_count BIGINT NOT NULL,
                 destination VARCHAR NOT NULL,
@@ -44,6 +50,8 @@ CREATE TABLE ride (
                 source VARCHAR NOT NULL,
                 CONSTRAINT ride_pk PRIMARY KEY (ride_id)
 );
+
+ALTER SEQUENCE ride_request_id_seq OWNED BY ride.ride_id;
 
 
 CREATE SEQUENCE ride_request_request_id_seq;

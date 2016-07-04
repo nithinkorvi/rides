@@ -15,6 +15,7 @@ public class UserController {
 
     @Autowired
     private UserDao userDao;
+    // setter and getter functions of UserDao//
 
     public UserDao getUserDao() {
         return userDao;
@@ -26,6 +27,8 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     @ResponseBody
+    // giving response to the  user //
+
     public User userLogin(@RequestParam String email, @RequestParam String password) {
         User u = getUserDao().findByEmail(email);
         if (u == null) {
@@ -38,6 +41,7 @@ public class UserController {
 
         return u;
     }
+    // creating user //
 
     @RequestMapping(method = RequestMethod.POST)
     public User createUser(@RequestBody User user) {
