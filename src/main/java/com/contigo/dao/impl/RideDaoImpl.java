@@ -46,6 +46,11 @@ public class RideDaoImpl extends AbstractJdbcDao implements RideDao {
         return rides;
     }
 
+    public Ride getride(Long Id) {
+        String SQL = "select * from ride where ride_id = ?";
+        Ride ride = getJdbcTemplate().queryForObject(SQL, new Object[]{Id}, new RideRowMapper());
+        return ride;
+    }
 }
 
 

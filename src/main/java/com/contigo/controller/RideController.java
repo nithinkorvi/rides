@@ -36,11 +36,20 @@ public class RideController {
         return ride;
     }
 
-
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public List<Ride> getAllRides() {
         List<Ride> rides = getRideDao().allrides();
         return rides;
+
     }
+
+
+    @RequestMapping(value ="/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public Ride getRide(@PathVariable Long id) {
+        Ride ride = getRideDao().getride(id);
+        return ride;
+    }
+
 }
