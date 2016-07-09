@@ -98,7 +98,7 @@ public class Ride {
         this.updatedDate = updatedDate;
     }
 
-    public Date getCreatedDate() {
+    public Date getCreatedDate(java.sql.Date created_date) {
         return createdDate;
     }
 

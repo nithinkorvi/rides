@@ -14,7 +14,7 @@ public interface RideDao {
 
     public List<Ride> allrides();
 
-    public Ride getride(Long Id);
+    public Ride getRide(Long Id);
 
 
 }
