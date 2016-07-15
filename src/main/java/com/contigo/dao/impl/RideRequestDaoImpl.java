@@ -14,12 +14,11 @@ import java.util.List;
 public class RideRequestDaoImpl extends AbstractJdbcDao implements RideRequestDao {
 
     public RideRequest requestRide(RideRequest rideRequest) {
-        String sql = "insert into ride (source, notes, approved, updated_date, destination_Zipcode, created_date, source_Zipcode, " +
-                "destination, ride_id, user_id," + "values (?, ?, ?, ?, ?," +
-                " ?, ?, ?, ?, ?, " +
-                ") + returning request_id";
 
 
+        String sql = "insert into ride_request (source, notes, approved, updated_date, destination_Zipcode, created_date, " +
+                "source_Zipcode, destination, ride_id, user_id"
+                + "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)" + "returning request_id";
         Long requestId = getJdbcTemplate().queryForObject(sql,
                 new Object[]
                         {

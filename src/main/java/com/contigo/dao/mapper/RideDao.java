@@ -5,12 +5,13 @@ import com.contigo.domain.User;
 
 import java.util.List;
 
+
 /**
  * Created by nithin on 7/2/2016.
  */
 
 public interface RideDao {
-    Ride createRide(Ride ride);
+    public Ride createRide(Ride ride);
 
     public List<Ride> allrides();
 
