@@ -3,7 +3,6 @@ package com.contigo.controller;
 import com.contigo.dao.UserDao;
 import com.contigo.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 /**

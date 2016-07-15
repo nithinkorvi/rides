@@ -1,6 +1,5 @@
 package com.contigo.dao.mapper;
 
-import com.contigo.domain.Ride;
 import com.contigo.domain.RideRequest;
 import org.springframework.jdbc.core.RowMapper;
 

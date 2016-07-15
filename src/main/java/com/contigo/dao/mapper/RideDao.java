@@ -1,7 +1,6 @@
 package com.contigo.dao.mapper;
 
 import com.contigo.domain.Ride;
-import com.contigo.domain.User;
 
 import java.util.List;
 

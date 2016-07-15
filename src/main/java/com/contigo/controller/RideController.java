@@ -2,15 +2,10 @@ package com.contigo.controller;
 
 import com.contigo.dao.mapper.RideDao;
 import com.contigo.domain.Ride;
-import com.contigo.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
-import com.contigo.domain.Ride;
 
 /**
  * Created by nithin on 7/2/2016.

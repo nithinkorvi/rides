@@ -3,7 +3,6 @@ package com.contigo.dao.impl;
 import com.contigo.dao.UserDao;
 import com.contigo.dao.mapper.UserRowMapper;
 import com.contigo.domain.User;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
