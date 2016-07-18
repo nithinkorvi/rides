@@ -13,7 +13,7 @@ public class RideRequestMapper implements RowMapper<RideRequest> {
     @Override
     public RideRequest mapRow(ResultSet resultSet, int i) throws SQLException {
         RideRequest ride = new RideRequest();
-        ride.setRequestId(resultSet.getLong("request_id"));
+        ride.setRequestId(resultSet.getLong("Request_id"));
         ride.setSource(resultSet.getString("source"));
         ride.setNotes(resultSet.getString("notes"));
         ride.setApproved(resultSet.getBoolean("approved"));

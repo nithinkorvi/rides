@@ -30,16 +30,20 @@ public class UserController {
 
     public User userLogin(@RequestParam String email, @RequestParam String password) {
         User u = getUserDao().findByEmail(email);
-        if (u == null) {
-            throw new RuntimeException("User not found");
+            try {
+            if (u == null) {
+                throw new RuntimeException("User not found");
+            }
+            if (!u.getPassword().equals(password)) {
+                throw new RuntimeException("User/Password combination is inccorrect");
+            }
         }
-
-        if (!u.getPassword().equals(password)) {
-            throw new RuntimeException("User/Password combination is inccorrect");
-        }
-
+        catch(Exception exception){
+            exception.fillInStackTrace();
+             }
         return u;
     }
+
     // creating user //
 
     @RequestMapping(method = RequestMethod.POST)

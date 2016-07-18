@@ -6,7 +6,7 @@ import java.util.Date;
  * Created by nithin on 7/6/2016.
  */
 public class RideRequest {
-    private Long requestId;
+    private Long RequestId;
     private String source;
     private String notes;
     private boolean approved;
@@ -19,11 +19,11 @@ public class RideRequest {
     private Long userId;
 
     public Long getRequestId() {
-        return requestId;
+        return RequestId;
     }
 
     public void setRequestId(Long requestId) {
-        this.requestId = requestId;
+        RequestId = requestId;
     }
 
     public String getSource() {

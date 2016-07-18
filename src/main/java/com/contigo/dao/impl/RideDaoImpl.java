@@ -3,6 +3,7 @@ package com.contigo.dao.impl;
 import com.contigo.dao.mapper.RideDao;
 import com.contigo.dao.mapper.RideRowMapper;
 import com.contigo.domain.Ride;
+import com.contigo.exception.DaoException;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -45,9 +46,13 @@ public class RideDaoImpl extends AbstractJdbcDao implements RideDao {
     }
 
     public Ride getRide(Long Id) {
-        String SQL = "select * from ride where ride_id = ?";
-        Ride ride = getJdbcTemplate().queryForObject(SQL, new Object[]{Id}, new RideRowMapper());
-        return ride;
+        try {
+            String SQL = "select * from ride where ride_id = ?";
+            Ride ride = getJdbcTemplate().queryForObject(SQL, new Object[]{Id}, new RideRowMapper());
+            return ride;
+        }   catch (Exception e) {
+            throw new DaoException(e);
+        }
     }
 }
 
